@@ -1,0 +1,138 @@
+[gd_scene load_steps=19 format=3 uid="uid://bslqtobe1d5c5"]
+
+[ext_resource type="Script" uid="uid://b3k1yhuygrwl4" path="res://Scripts/Menus/pause_menu.gd" id="1_6bm0b"]
+[ext_resource type="Texture2D" uid="uid://cmxhdfhujrvul" path="res://Aseprite/Menus/PauseMenu/PauseMenu.png" id="2_fbppb"]
+[ext_resource type="Texture2D" uid="uid://b7u6e5vjhcc1x" path="res://Aseprite/Menus/PauseMenu/ResumeButton/ResumeButtonNotPressed.png" id="3_7uhrw"]
+[ext_resource type="Texture2D" uid="uid://b2oyklynyxkjo" path="res://Aseprite/Menus/PauseMenu/ResumeButton/ResumeButtonPressed.png" id="4_4l4gr"]
+[ext_resource type="Texture2D" uid="uid://75v4eohyekak" path="res://Aseprite/Menus/PauseMenu/ResumeButton/ResumeButtonOver.png" id="4_wlim3"]
+[ext_resource type="Texture2D" uid="uid://0gwd1w7ffif5" path="res://Aseprite/Menus/PauseMenu/ControlsButton/ControlsButtonNotPressed.png" id="5_ioey0"]
+[ext_resource type="Texture2D" uid="uid://dmc3hyyoijbso" path="res://Aseprite/Menus/PauseMenu/ControlsButton/ControlsButtonOver.png" id="6_0axwo"]
+[ext_resource type="Texture2D" uid="uid://cp2kqhd41rpns" path="res://Aseprite/Menus/PauseMenu/MainMenuButton/MainMenuButtonNotPressed.png" id="7_oeb8b"]
+[ext_resource type="Texture2D" uid="uid://d1r8s0r45n7dh" path="res://Aseprite/Menus/PauseMenu/ControlsButton/ControlsButtonPressed.png" id="7_u65rm"]
+[ext_resource type="Texture2D" uid="uid://bvqys5sol42ni" path="res://Aseprite/Menus/PauseMenu/MainMenuButton/MainMenuButtonOver.png" id="8_eocwy"]
+[ext_resource type="Texture2D" uid="uid://ckymuehbk27jq" path="res://Aseprite/Menus/PauseMenu/ExitButton/ExitButtonNotPressed.png" id="9_ecybn"]
+[ext_resource type="Texture2D" uid="uid://c8ibuubi6ols5" path="res://Aseprite/Menus/PauseMenu/MainMenuButton/MainMenuButtonPressed.png" id="10_dw8e8"]
+[ext_resource type="Texture2D" uid="uid://bclt2y7fch1gg" path="res://Aseprite/Menus/PauseMenu/ExitButton/ExitButtonOver.png" id="10_ot8jy"]
+[ext_resource type="Texture2D" uid="uid://dr4dmcewy02n5" path="res://Aseprite/Menus/PauseMenu/ControlsPauseMenu.png" id="11_3fhbc"]
+[ext_resource type="Texture2D" uid="uid://cye1j5lj8dmhf" path="res://Aseprite/Menus/MainMenu/Exit/ExitButtonNotPressed.png" id="12_3e5ak"]
+[ext_resource type="Texture2D" uid="uid://bx8fe56lijmsk" path="res://Aseprite/Menus/MainMenu/Exit/ExitButtonPressed.png" id="13_udphs"]
+[ext_resource type="Texture2D" uid="uid://b7oasyff5qc5" path="res://Aseprite/Menus/PauseMenu/ExitButton/ExitButtonPressed.png" id="13_wlj1k"]
+[ext_resource type="Texture2D" uid="uid://hkqlvcsr1o5e" path="res://Aseprite/Menus/MainMenu/Exit/ExitButtonOver.png" id="14_0v3vh"]
+
+[node name="PauseMenu" type="Control"]
+process_mode = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6bm0b")
+metadata/_edit_vertical_guides_ = [0.0, 1152.0, 576.0]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 4
+visible = false
+
+[node name="PauseBackgroundColor" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.392157)
+
+[node name="PauseMenuControl" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PauseMenuControl"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 288.0
+offset_top = 96.0
+offset_right = 288.0
+offset_bottom = 344.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_fbppb")
+
+[node name="MenuVBox" type="VBoxContainer" parent="CanvasLayer/PauseMenuControl/TextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -240.0
+offset_top = -208.0
+offset_right = -80.0
+offset_bottom = -36.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3, 3)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="ResumeButton" type="TextureButton" parent="CanvasLayer/PauseMenuControl/TextureRect/MenuVBox"]
+layout_mode = 2
+texture_normal = ExtResource("3_7uhrw")
+texture_pressed = ExtResource("4_4l4gr")
+texture_hover = ExtResource("4_wlim3")
+
+[node name="ControlsButton" type="TextureButton" parent="CanvasLayer/PauseMenuControl/TextureRect/MenuVBox"]
+layout_mode = 2
+texture_normal = ExtResource("5_ioey0")
+texture_pressed = ExtResource("7_u65rm")
+texture_hover = ExtResource("6_0axwo")
+
+[node name="MainMenuButton" type="TextureButton" parent="CanvasLayer/PauseMenuControl/TextureRect/MenuVBox"]
+layout_mode = 2
+texture_normal = ExtResource("7_oeb8b")
+texture_pressed = ExtResource("10_dw8e8")
+texture_hover = ExtResource("8_eocwy")
+
+[node name="ExitButton" type="TextureButton" parent="CanvasLayer/PauseMenuControl/TextureRect/MenuVBox"]
+layout_mode = 2
+texture_normal = ExtResource("9_ecybn")
+texture_pressed = ExtResource("13_wlj1k")
+texture_hover = ExtResource("10_ot8jy")
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Controls" type="Sprite2D" parent="CanvasLayer/Control"]
+position = Vector2(576, 342)
+scale = Vector2(1.2, 1.192)
+texture = ExtResource("11_3fhbc")
+
+[node name="ExitOptionsTextureButton" type="TextureButton" parent="CanvasLayer/Control"]
+layout_direction = 1
+layout_mode = 2
+offset_left = 471.0
+offset_top = 559.0
+offset_right = 681.0
+offset_bottom = 593.0
+size_flags_horizontal = 4
+texture_normal = ExtResource("12_3e5ak")
+texture_pressed = ExtResource("13_udphs")
+texture_hover = ExtResource("14_0v3vh")
+stretch_mode = 3
+
+[connection signal="pressed" from="CanvasLayer/PauseMenuControl/TextureRect/MenuVBox/ControlsButton" to="." method="_on_controls_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/PauseMenuControl/TextureRect/MenuVBox/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/PauseMenuControl/TextureRect/MenuVBox/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/ExitOptionsTextureButton" to="." method="_on_exit_options_texture_button_pressed"]

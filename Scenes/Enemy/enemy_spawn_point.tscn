@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://d3e2086ux20vg"]
+
+[ext_resource type="Script" uid="uid://dp1bddj3n1ryj" path="res://Scripts/Enemy/enemy_spawn_point.gd" id="1_n4jqb"]
+[ext_resource type="PackedScene" uid="uid://clj187kbugegt" path="res://Scenes/Enemy/enemy.tscn" id="2_dq3x4"]
+
+[node name="EnemySpawnPoint" type="Marker2D" groups=["EnemySpawner"]]
+script = ExtResource("1_n4jqb")
+enemy_packed_scene = ExtResource("2_dq3x4")
+
+[connection signal="child_exiting_tree" from="." to="." method="enemy_spawn_point"]

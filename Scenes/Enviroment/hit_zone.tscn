@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://mq0hjg4ulcbc"]
+
+[ext_resource type="Texture2D" uid="uid://pymttdy6t2wh" path="res://Aseprite/Tilemap/Heal-Hit/HitZone.png" id="2_i14sx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l41sy"]
+size = Vector2(16, 16)
+
+[node name="HitZone" type="Node2D" groups=["HitZone"]]
+
+[node name="AreaHit" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaHit"]
+shape = SubResource("RectangleShape2D_l41sy")
+
+[node name="Sprite2D" type="Sprite2D" parent="AreaHit/CollisionShape2D"]
+texture = ExtResource("2_i14sx")

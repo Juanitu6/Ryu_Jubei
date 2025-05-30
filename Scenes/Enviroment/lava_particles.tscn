@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://6qiikojjlgkk"]
+
+[ext_resource type="Script" uid="uid://ch8n0phluxx4k" path="res://Scripts/Enviroment/lava_particles.gd" id="1_2uaoq"]
+
+[sub_resource type="Gradient" id="Gradient_s3mvi"]
+offsets = PackedFloat32Array(0, 0.364964, 0.678832, 1)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 0, 1, 1, 0.498039, 0, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_t8xeg"]
+gradient = SubResource("Gradient_s3mvi")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0untk"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 10.0
+angular_velocity_min = 4.99998
+angular_velocity_max = 90.0
+radial_velocity_min = 9.99998
+radial_velocity_max = 9.99998
+gravity = Vector3(0, -98, 0)
+scale_min = 2.0
+scale_max = 2.0
+color_ramp = SubResource("GradientTexture1D_t8xeg")
+
+[node name="GPUParticles2D" type="GPUParticles2D"]
+z_index = 2
+emitting = false
+amount = 50
+lifetime = 0.5
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_0untk")
+script = ExtResource("1_2uaoq")

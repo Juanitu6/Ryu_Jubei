@@ -1,0 +1,65 @@
+[gd_scene load_steps=7 format=3 uid="uid://oho3vol45hc5"]
+
+[ext_resource type="Script" uid="uid://1baxn4bvhypn" path="res://Scripts/Enviroment/healZone.gd" id="1_fd5gp"]
+[ext_resource type="Texture2D" uid="uid://dihcoa22yxujo" path="res://Aseprite/Animacions/BottleHealtAnimation.png" id="2_sqj4w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jltf3"]
+size = Vector2(16, 16)
+
+[sub_resource type="Animation" id="Animation_802pr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AreaPotion/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_56ajd"]
+resource_name = "idle_potion"
+length = 1.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AreaPotion/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_de2y5"]
+_data = {
+&"RESET": SubResource("Animation_802pr"),
+&"idle_potion": SubResource("Animation_56ajd")
+}
+
+[node name="HealPotion" type="Node2D" groups=["Heal"]]
+script = ExtResource("1_fd5gp")
+
+[node name="AreaPotion" type="Area2D" parent="."]
+scale = Vector2(0.75, 0.75)
+
+[node name="Sprite2D" type="Sprite2D" parent="AreaPotion"]
+texture = ExtResource("2_sqj4w")
+hframes = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaPotion"]
+shape = SubResource("RectangleShape2D_jltf3")
+
+[node name="AnimationPotion" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_de2y5")
+}
+
+[connection signal="area_entered" from="AreaPotion" to="." method="_on_area_potion_area_entered"]

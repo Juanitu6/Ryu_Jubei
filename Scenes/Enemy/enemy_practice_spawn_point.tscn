@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://djmopkeumv14j"]
+
+[ext_resource type="Script" uid="uid://jh4dxosc2adg" path="res://Scripts/Enemy/enemy_practice_spawn_point.gd" id="1_qy6hr"]
+[ext_resource type="PackedScene" uid="uid://d3727cp6wwtt7" path="res://Scenes/Enemy/enemy_practice.tscn" id="2_7d8vu"]
+
+[node name="EnemyPracticeSpawnPoint" type="Marker2D" groups=["PracticeEnemySpawner"]]
+script = ExtResource("1_qy6hr")
+enemy_practice_packed_scene = ExtResource("2_7d8vu")
+
+[connection signal="child_exiting_tree" from="." to="." method="enemy_spawn_point"]

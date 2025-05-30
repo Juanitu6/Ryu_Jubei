@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bokwnlex0bxel"]
+
+[ext_resource type="Shader" uid="uid://dj5e808u414w6" path="res://Scenes/Enviroment/lava.tres" id="1_nbwm5"]
+[ext_resource type="Texture2D" uid="uid://dlhvslus5tx52" path="res://Aseprite/Tilemap/lava.png" id="2_erykr"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t7utp"]
+shader = ExtResource("1_nbwm5")
+shader_parameter/Speed = 1.0
+
+[node name="Line2D" type="Line2D"]
+texture_filter = 1
+texture_repeat = 3
+material = SubResource("ShaderMaterial_t7utp")
+rotation = 1.5708
+points = PackedVector2Array(0, 0, 0, 3500)
+width = 20.0
+texture = ExtResource("2_erykr")
+texture_mode = 1
